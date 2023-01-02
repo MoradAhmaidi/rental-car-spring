@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index">
+<body>
+<th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
+<div layout:fragment="contenu">
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Client</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+  <div class="col-12">
+
+    <div class="card top-selling overflow-auto">
+      <div class="filter">
+          <a class="btn btn-primary" th:href="CreateOption" >Create</a>
+      </div>
+
+      <div class="card-body pb-0">
+        <h5 class="card-title">Option</h5>
+
+        <table class="table table-borderless">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Libelle</th>
+            <th scope="col">Details</th>
+            <th scope="col">Action</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr th:each="caractestique:${caractestiques}" >
+              <th scope="col" th:text="${caractestique.id}"></th>
+              <th scope="col" th:text="${caractestique.libelle}"></th>
+              <th scope="col" th:text="${caractestique.details}"></th>
+              <th>
+                <div class="btn-group">
+                  <a class="btn btn-primary"><i class="bi bi-star me-1"></i></a>
+                  <a class="btn btn-danger"><i class="bi bi-exclamation-octagon"></i></a>
+                </div>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+        <!--  <nav aria-label="Page navigation example">
+           <ul class="pagination">
+             <li class="page-item" th:each="p,status:${pages}"><a class="page-link" th:href="@{Option(page=${status.index})}" th:text="${status.index}"></a></li>
+           </ul>
+         </nav>
+         <nav aria-label="Page navigation example">
+           <ul class="pagination">
+             <li class="page-item" ><a class="page-link" th:href="@{Option(size=${25})}" th:text="25"></a></li>
+             <li class="page-item" ><a class="page-link" th:href="@{Option(size=${50})}" th:text="50"></a></li>
+           </ul>
+         </nav>-->
+       </div>
+     </div>
+   </div><!-- End Top Selling -->
+</div>
+</body>

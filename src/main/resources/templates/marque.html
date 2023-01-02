@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index">
+<body>
+<div layout:fragment="contenu">
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Marque</a></li>
+          <li class="breadcrumb-item active">Dashboard</li>
+        </ol>
+      </nav>
+    </div>
+    <div class="col-12">
+      <div class="card top-selling overflow-auto">
+        <div class="filter">
+          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+            <li class="dropdown-header text-start">
+              <h6>Filter</h6>
+            </li>
+
+            <li><a class="dropdown-item" href="#">Today</a></li>
+            <li><a class="dropdown-item" href="#">This Month</a></li>
+            <li><a class="dropdown-item" href="#">This Year</a></li>
+          </ul>
+        </div>
+
+        <div class="card-body pb-0">
+          <h5 class="card-title">Marque</h5>
+
+          <table class="table table-borderless">
+            <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Logo</th>
+              <th scope="col">Libelle</th>
+              <th scope="col">Details</th>
+              <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr th:each="m:${marques}" >
+                <th scope="col" th:text="${m.id}"></th>
+                <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
+                <th scope="col" th:text="${m.libelle}"></th>
+                <th scope="col" th:text="${m.details}"></th>
+                <th>
+                  <div class="btn-group">
+                    <a class="btn btn-primary"><i class="bi bi-star me-1"></i></a>
+                    <a class="btn btn-danger"><i class="bi bi-exclamation-octagon"></i></a>
+                  </div>
+                </th>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+    </div><!-- End Top Selling -->
+</div>
+
+</body>
