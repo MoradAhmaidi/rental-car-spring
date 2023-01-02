@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -21,6 +22,17 @@ public class CategorieController {
         List<Categorie> categories= categorieService.getAll();
         model.addAttribute("categories",categories);
         return "Categorie";
+    }
+    @GetMapping("/CreateCategorie")
+    public String save()
+    {
+        return "CreateCategorie";
+    }
+    @PostMapping("/CreateCategorie")
+    public String save(Categorie c)
+    {
+        categorieService.save(c);
+        return "redirect:Categorie";
     }
 
 }

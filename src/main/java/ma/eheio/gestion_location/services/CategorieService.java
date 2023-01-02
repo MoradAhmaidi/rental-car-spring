@@ -16,4 +16,9 @@ public class CategorieService {
     {
         return categorieRepository.findAll();
     }
+
+    public void save(Categorie c)
+    {
+         categorieRepository.save(c);
+    }
 }
