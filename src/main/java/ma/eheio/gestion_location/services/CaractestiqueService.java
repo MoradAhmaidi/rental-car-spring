@@ -23,4 +23,8 @@ public class CaractestiqueService {
     {
         caractestiqueRepository.save(c);
     }
+    public void delete(int id)
+    {
+        caractestiqueRepository.deleteById(id);
+    }
 }

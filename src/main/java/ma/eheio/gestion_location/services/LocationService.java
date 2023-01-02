@@ -20,4 +20,8 @@ public class LocationService {
     {
         reservationRepository.save(r);
     }
+    public void delete(int id)
+    {
+        reservationRepository.deleteById(id);
+    }
 }

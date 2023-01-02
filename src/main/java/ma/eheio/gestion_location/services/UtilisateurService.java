@@ -20,4 +20,8 @@ public class UtilisateurService {
     {
         utilisateurRepository.save(u);
     }
+    public void delete(int id)
+    {
+        utilisateurRepository.deleteById(id);
+    }
 }

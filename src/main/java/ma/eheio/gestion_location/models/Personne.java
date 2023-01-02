@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -20,11 +21,9 @@ public class Personne extends Auditable<String>{
     private int id;
     private String nom;
     private String prenom;
+    private Date dateNaiss;
     private String sexe;
     private String adresse;
     private String email;
     private String telephone;
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    private String dateNaiss;
-
 }

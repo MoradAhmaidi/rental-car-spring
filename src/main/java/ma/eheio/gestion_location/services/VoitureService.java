@@ -20,4 +20,8 @@ public class VoitureService {
     {
         voitureRepository.save(v);
     }
+    public void delete(int id)
+    {
+        voitureRepository.deleteById(id);
+    }
 }

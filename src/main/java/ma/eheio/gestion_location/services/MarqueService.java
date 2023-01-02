@@ -20,4 +20,8 @@ public class MarqueService {
     {
         marqueRepository.save(m);
     }
+    public void delete(int id)
+    {
+        marqueRepository.deleteById(id);
+    }
 }

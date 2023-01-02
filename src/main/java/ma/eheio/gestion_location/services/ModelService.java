@@ -20,4 +20,8 @@ public class ModelService {
     {
         modelRepository.save(m);
     }
+    public void delete(int id)
+    {
+        modelRepository.deleteById(id);
+    }
 }

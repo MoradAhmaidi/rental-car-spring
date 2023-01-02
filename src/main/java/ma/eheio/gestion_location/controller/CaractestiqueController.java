@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -36,6 +38,10 @@ public class CaractestiqueController {
     @PostMapping("/CreateOption")
     public String save(Caractestique c)
     {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        c.setCreatedDate(date);
+        c.setLastModifiedDate(date);
         caractestiqueService.save(c);
         return "redirect:Option";
     }

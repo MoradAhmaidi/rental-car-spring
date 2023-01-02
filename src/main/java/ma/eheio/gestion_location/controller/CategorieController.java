@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -31,6 +33,10 @@ public class CategorieController {
     @PostMapping("/CreateCategorie")
     public String save(Categorie c)
     {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        c.setCreatedDate(date);
+        c.setLastModifiedDate(date);
         categorieService.save(c);
         return "redirect:Categorie";
     }

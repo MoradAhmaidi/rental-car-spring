@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -31,6 +33,10 @@ public class MarqueController {
     @PostMapping("/CreateMarque")
     public String save(Marque m)
     {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        m.setCreatedDate(date);
+        m.setLastModifiedDate(date);
         marqueService.save(m);
         return "redirect:Marque";
     }

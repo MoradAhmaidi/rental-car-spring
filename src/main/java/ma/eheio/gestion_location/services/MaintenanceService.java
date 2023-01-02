@@ -21,4 +21,8 @@ public class MaintenanceService {
     {
         maintenanceRepository.save(m);
     }
+    public void delete(int id)
+    {
+        maintenanceRepository.deleteById(id);
+    }
 }
