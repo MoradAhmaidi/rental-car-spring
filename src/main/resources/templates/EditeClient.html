@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index">
+<body>
+<div layout:fragment="contenu">
+  <div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Client</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-12">
+    <div class="col-lg-12">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Modifier Client</h5>
+
+          <form class="row g-3" th:action="@{EditeClient}" method="post">
+
+            <div class="col-md-6">
+              <label for="nom" class="form-label">Nom</label>
+              <input type="text" class="form-control" id="nom" name="nom">
+            </div>
+            <div class="col-md-6">
+              <label for="prenom" class="form-label">Prenom</label>
+              <input type="text" class="form-control" id="prenom" name="prenom">
+            </div>
+            <div class="col-md-6">
+              <label for="cin" class="form-label">CIN</label>
+              <input type="text" class="form-control" id="cin" name="cin">
+            </div>
+            <div class="col-md-6">
+              <fieldset class="row mb-3">
+                <legend class="col-form-label col-sm-2 pt-0">Sexe</legend>
+                <div class="col-sm-10">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sexe" id="Homme" value="Home" checked>
+                    <label class="form-check-label" for="Homme">
+                      Homme
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="sexe" id="Femme" value="Femme">
+                    <label class="form-check-label" for="Femme">
+                      Femme
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" name="email">
+            </div>
+            <div class="col-md-6">
+              <label for="dateNaiss" class="form-label">Date Naissance</label>
+              <input type="date" class="form-control" id="dateNaiss" name="dateNaiss">
+            </div>
+            <div class="col-6">
+              <label for="adresse" class="form-label">Adresse</label>
+              <textarea class="form-control" placeholder="Address" id="adresse" style="height: 100px;" name="adresse"></textarea>
+            </div>
+
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+          </form><!-- End Multi Columns Form -->
+
+        </div>
+      </div>
+
+    </div>
+  </div><!-- End Top Selling -->
+</div>
+
+</body>

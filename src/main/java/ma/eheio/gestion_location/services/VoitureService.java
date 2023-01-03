@@ -1,7 +1,5 @@
 package ma.eheio.gestion_location.services;
 
-import ma.eheio.gestion_location.models.Caractestique;
-import ma.eheio.gestion_location.models.Maintenance;
 import ma.eheio.gestion_location.models.Voiture;
 import ma.eheio.gestion_location.repositories.VoitureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ public class VoitureService {
     {
         return voitureRepository.findById(id).orElseThrow();
     }
-    public void Update(Voiture v)
+    public void update(Voiture v)
     {
         Voiture old=voitureRepository.findById(v.getId()).orElseThrow();
         old.setMatricule(v.getMatricule());

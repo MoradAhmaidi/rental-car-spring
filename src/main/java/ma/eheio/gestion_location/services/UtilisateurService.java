@@ -1,7 +1,5 @@
 package ma.eheio.gestion_location.services;
 
-import ma.eheio.gestion_location.models.Caractestique;
-import ma.eheio.gestion_location.models.Maintenance;
 import ma.eheio.gestion_location.models.Utilisateur;
 import ma.eheio.gestion_location.repositories.UtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ public class UtilisateurService {
     {
         return utilisateurRepository.findById(id).orElseThrow();
     }
-    public void Update(Utilisateur u)
+    public void update(Utilisateur u)
     {
         Utilisateur old=utilisateurRepository.findById(u.getId()).orElseThrow();
         old.setLogin(u.getLogin());

@@ -1,8 +1,7 @@
 package ma.eheio.gestion_location.controller;
 
-import ma.eheio.gestion_location.models.Caractestique;
+import ma.eheio.gestion_location.models.Caracteristique;
 import ma.eheio.gestion_location.models.Marque;
-import ma.eheio.gestion_location.repositories.MarqueRepository;
 import ma.eheio.gestion_location.services.MarqueService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +22,7 @@ public class MarqueController {
     {
         List<Marque> marques= marqueService.getAll();
         model.addAttribute("marques",marques);
-        return "Marque";
+        return "ListeMarque";
     }
     @GetMapping("/CreateMarque")
     public String save()
@@ -38,6 +37,22 @@ public class MarqueController {
         m.setCreatedDate(date);
         m.setLastModifiedDate(date);
         marqueService.save(m);
-        return "redirect:Marque";
+        return "redirect:ListeMarque";
+    }
+    @GetMapping("/EditeMarque")
+    public String edite(Model model,int id)
+    {
+        Marque marque = marqueService.getById(id);
+        model.addAttribute("marque",marque);
+        return "editeMarque";
+    }
+    @PostMapping("/EditeMarque")
+    public String edite(Marque m)
+    {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        m.setLastModifiedDate(date);
+        marqueService.update(m);
+        return "redirect:ListeMarque";
     }
 }

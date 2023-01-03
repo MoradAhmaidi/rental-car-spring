@@ -8,6 +8,6 @@ public class GameController {
     @GetMapping("/Game")
     public String getAll()
     {
-        return "Game";
+        return "ListeGame";
     }
 }

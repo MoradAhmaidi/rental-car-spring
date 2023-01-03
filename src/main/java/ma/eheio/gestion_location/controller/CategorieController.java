@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -23,7 +24,7 @@ public class CategorieController {
     {
         List<Categorie> categories= categorieService.getAll();
         model.addAttribute("categories",categories);
-        return "Categorie";
+        return "ListeCategorie";
     }
     @GetMapping("/CreateCategorie")
     public String save()
@@ -38,7 +39,23 @@ public class CategorieController {
         c.setCreatedDate(date);
         c.setLastModifiedDate(date);
         categorieService.save(c);
-        return "redirect:Categorie";
+        return "redirect:ListeCategorie";
+    }
+    @GetMapping("/EditeCategorie")
+    public String edite(Model model,int id)
+    {
+        Categorie categorie = categorieService.getById(id);
+        model.addAttribute("categorie",categorie);
+        return "editeCategorie";
+    }
+    @PostMapping("/EditeCategorie")
+    public String edite(Categorie c)
+    {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        c.setLastModifiedDate(date);
+        categorieService.save(c);
+        return "redirect:ListeCategorie";
     }
 
 }

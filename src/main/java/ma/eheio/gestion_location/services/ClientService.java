@@ -1,9 +1,6 @@
 package ma.eheio.gestion_location.services;
 
-import ma.eheio.gestion_location.models.Caractestique;
-import ma.eheio.gestion_location.models.Categorie;
 import ma.eheio.gestion_location.models.Client;
-import ma.eheio.gestion_location.models.Maintenance;
 import ma.eheio.gestion_location.repositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +28,7 @@ public class ClientService {
     {
         return clientRepository.findById(id).orElseThrow();
     }
-    public void Update(Client c)
+    public void update(Client c)
     {
         Client old=clientRepository.findById(c.getId()).orElseThrow();
         old.setCin(c.getCin());

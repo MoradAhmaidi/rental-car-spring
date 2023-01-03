@@ -30,7 +30,7 @@ public class FournisseurService {
     {
         return fournisseurRepository.findById(id).orElseThrow();
     }
-    public void Update(Fournisseur f)
+    public void update(Fournisseur f)
     {
         Fournisseur old=fournisseurRepository.findById(f.getId()).orElseThrow();
         old.setNom(f.getNom());

@@ -1,7 +1,5 @@
 package ma.eheio.gestion_location.services;
 
-import ma.eheio.gestion_location.models.Caractestique;
-import ma.eheio.gestion_location.models.Maintenance;
 import ma.eheio.gestion_location.models.Model;
 import ma.eheio.gestion_location.repositories.ModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +27,7 @@ public class ModelService {
     {
         return modelRepository.findById(id).orElseThrow();
     }
-    public void Update(Model m)
+    public void update(Model m)
     {
         Model old=modelRepository.findById(m.getId()).orElseThrow();
         old.setLibelle(m.getLibelle());

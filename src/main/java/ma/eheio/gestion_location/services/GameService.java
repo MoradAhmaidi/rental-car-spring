@@ -1,9 +1,6 @@
 package ma.eheio.gestion_location.services;
 
-import ma.eheio.gestion_location.models.Caractestique;
-import ma.eheio.gestion_location.models.Client;
 import ma.eheio.gestion_location.models.Game;
-import ma.eheio.gestion_location.models.Maintenance;
 import ma.eheio.gestion_location.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,7 +28,7 @@ public class GameService {
     {
         return gameRepository.findById(id).orElseThrow();
     }
-    public void Update(Game c)
+    public void update(Game c)
     {
         Game old=gameRepository.findById(c.getId()).orElseThrow();
         old.setLibelle(c.getLibelle());

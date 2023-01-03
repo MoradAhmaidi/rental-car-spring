@@ -8,6 +8,6 @@ public class ModelController {
     @GetMapping("/Model")
     public String getAll()
     {
-        return "Model";
+        return "ListeModel";
     }
 }

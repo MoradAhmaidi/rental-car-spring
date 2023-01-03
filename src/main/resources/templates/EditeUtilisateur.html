@@ -16,9 +16,9 @@
 
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Ajoute Client</h5>
+          <h5 class="card-title">Modifier Client</h5>
 
-          <form class="row g-3" th:action="@{CreateClient}" method="post">
+          <form class="row g-3" th:action="@{EditeUtilisateur}" method="post">
 
             <div class="col-md-6">
               <label for="nom" class="form-label">Nom</label>
@@ -29,8 +29,8 @@
               <input type="text" class="form-control" id="prenom" name="prenom">
             </div>
             <div class="col-md-6">
-              <label for="cin" class="form-label">CIN</label>
-              <input type="text" class="form-control" id="cin">
+              <label for="Facteur" class="form-label">Numero Facteur</label>
+              <input type="text" class="form-control" id="Facteur" name="nFacteur">
             </div>
             <div class="col-md-6">
               <fieldset class="row mb-3">

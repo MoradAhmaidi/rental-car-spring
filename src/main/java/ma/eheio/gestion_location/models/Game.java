@@ -23,7 +23,7 @@ public class Game extends ObjetCommun{
     private Model model;
 
     @ManyToMany(mappedBy = "games")
-    private List<Caractestique> caractestiques;
+    private List<Caracteristique> caractestiques;
 
 
 }

@@ -28,7 +28,7 @@ public class LocationService {
     {
         return locationRepository.findById(id).orElseThrow();
     }
-    public void Update(Location l)
+    public void update(Location l)
     {
         Location old=locationRepository.findById(l.getId()).orElseThrow();
         old.setDateDepart(l.getDateDepart());

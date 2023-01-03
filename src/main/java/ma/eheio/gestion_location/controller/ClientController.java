@@ -9,6 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -20,7 +22,7 @@ public class ClientController {
     {
         List<Client> clients= clientService.getAll();
         model.addAttribute("clients",clients);
-        return "Client";
+        return "ListeClient";
     }
     @GetMapping("/CreateClient")
     public String save()
@@ -31,6 +33,23 @@ public class ClientController {
     public String save(Client c)
     {
         clientService.save(c);
-        return "redirect:Client";
+        return "redirect:ListeClient";
+    }
+
+    @GetMapping("/EditeClient")
+    public String edite(Model model,int id)
+    {
+        Client client = clientService.getById(id);
+        model.addAttribute("Client",client);
+        return "editeClient";
+    }
+    @PostMapping("/EditeClient")
+    public String edite(Client c)
+    {
+        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
+        Date date = new Date(System.currentTimeMillis());
+        c.setLastModifiedDate(date);
+        clientService.save(c);
+        return "redirect:ListeClient";
     }
 }
