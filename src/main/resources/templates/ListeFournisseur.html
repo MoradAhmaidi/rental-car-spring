@@ -32,15 +32,33 @@
           <table class="table table-borderless">
             <thead>
             <tr>
-              <th scope="col">Preview</th>
-              <th scope="col">Product</th>
-              <th scope="col">Price</th>
-              <th scope="col">Sold</th>
-              <th scope="col">Revenue</th>
+              <th scope="col">ID</th>
+              <th scope="col">NF</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Prenom</th>
+              <th scope="col">Sexe</th>
+              <th scope="col">Email</th>
+              <th scope="col">Telephone</th>
+              <th scope="col">Date Naiss</th>
+              <th scope="col">Action</th>
             </tr>
             </thead>
             <tbody>
-
+            <tr th:each="f:${fournisseurs}" >
+              <th scope="col" th:text="${f.id}"></th>
+              <th scope="col" th:text="${f.numeFacteur}"></th>
+              <th scope="col" th:text="${f.nom}"></th>
+              <th scope="col" th:text="${f.prenom}"></th>
+              <th scope="col" th:text="${f.sexe}"></th>
+              <th scope="col" th:text="${f.email}"></th>
+              <th scope="col" th:text="${f.telephone}"></th>
+              <th scope="col" th:text="${f.dateNaiss}"></th>
+              <th>
+                <div class="btn-group">
+                  <a class="btn btn-primary"><i class="bi bi-star me-1"></i></a>
+                  <a class="btn btn-danger"><i class="bi bi-exclamation-octagon"></i></a>
+                </div>
+              </th>
             </tbody>
           </table>
 

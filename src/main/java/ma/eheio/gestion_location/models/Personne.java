@@ -21,6 +21,7 @@ public class Personne extends Auditable<String>{
     private int id;
     private String nom;
     private String prenom;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateNaiss;
     private String sexe;
     private String adresse;
