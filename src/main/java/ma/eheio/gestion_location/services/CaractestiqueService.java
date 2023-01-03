@@ -27,4 +27,17 @@ public class CaractestiqueService {
     {
         caractestiqueRepository.deleteById(id);
     }
+    public void Update(Caractestique c)
+    {
+       Caractestique old=caractestiqueRepository.findById(c.getId()).orElseThrow();
+       old.setLibelle(c.getLibelle());
+       old.setDetails(c.getDetails());
+       old.setGames(c.getGames());
+
+       old.setLastModifiedDate(c.getLastModifiedDate());
+       old.setLastModifiedBy(c.getLastModifiedBy());
+
+       caractestiqueRepository.save(old);
+
+    }
 }

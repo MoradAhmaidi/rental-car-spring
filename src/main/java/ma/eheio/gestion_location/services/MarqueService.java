@@ -1,6 +1,7 @@
 package ma.eheio.gestion_location.services;
 
 import ma.eheio.gestion_location.models.Caractestique;
+import ma.eheio.gestion_location.models.Maintenance;
 import ma.eheio.gestion_location.models.Marque;
 import ma.eheio.gestion_location.repositories.MarqueRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,21 @@ public class MarqueService {
     public void delete(int id)
     {
         marqueRepository.deleteById(id);
+    }
+    public Marque getById(int id)
+    {
+        return marqueRepository.findById(id).orElseThrow();
+    }
+    public void Update(Marque m)
+    {
+        Marque old=marqueRepository.findById(m.getId()).orElseThrow();
+        old.setLibelle(m.getLibelle());
+        old.setDetails(m.getDetails());
+        old.setPath(m.getPath());
+
+        old.setLastModifiedDate(m.getLastModifiedDate());
+        old.setLastModifiedBy(m.getLastModifiedBy());
+
+        marqueRepository.save(old);
     }
 }

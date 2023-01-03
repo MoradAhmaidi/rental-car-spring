@@ -10,18 +10,35 @@ import java.util.List;
 @Service
 public class LocationService {
     @Autowired
-    private LocationRepository reservationRepository;
+    private LocationRepository locationRepository;
     public List<Location> getAll()
     {
-        return reservationRepository.findAll();
+        return locationRepository.findAll();
     }
 
     public void save(Location r)
     {
-        reservationRepository.save(r);
+        locationRepository.save(r);
     }
     public void delete(int id)
     {
-        reservationRepository.deleteById(id);
+        locationRepository.deleteById(id);
+    }
+    public Location getById(int id)
+    {
+        return locationRepository.findById(id).orElseThrow();
+    }
+    public void Update(Location l)
+    {
+        Location old=locationRepository.findById(l.getId()).orElseThrow();
+        old.setDateDepart(l.getDateDepart());
+        old.setDateRetoure(l.getDateRetoure());
+        old.setTarif(l.getTarif());
+        old.setLoue(l.isLoue());
+
+        old.setClient(l.getClient());
+        old.setVoiture(l.getVoiture());
+
+        locationRepository.save(old);
     }
 }

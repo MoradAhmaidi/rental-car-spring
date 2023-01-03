@@ -1,6 +1,7 @@
 package ma.eheio.gestion_location.services;
 
 import ma.eheio.gestion_location.models.Caractestique;
+import ma.eheio.gestion_location.models.Game;
 import ma.eheio.gestion_location.models.Maintenance;
 import ma.eheio.gestion_location.repositories.MaintenanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,5 +25,25 @@ public class MaintenanceService {
     public void delete(int id)
     {
         maintenanceRepository.deleteById(id);
+    }
+    public Maintenance getById(int id)
+    {
+        return maintenanceRepository.findById(id).orElseThrow();
+    }
+    public void Update(Maintenance m)
+    {
+        Maintenance old=maintenanceRepository.findById(m.getId()).orElseThrow();
+        old.setLibelle(m.getLibelle());
+        old.setDetails(m.getDetails());
+        old.setTarif(m.getTarif());
+        old.setRemarque(m.getRemarque());
+
+        old.setVoiture(m.getVoiture());
+        old.setFournisseur(m.getFournisseur());
+
+        old.setLastModifiedDate(m.getLastModifiedDate());
+        old.setLastModifiedBy(m.getLastModifiedBy());
+
+        maintenanceRepository.save(old);
     }
 }

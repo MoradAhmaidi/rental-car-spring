@@ -1,7 +1,9 @@
 package ma.eheio.gestion_location.services;
 
 import ma.eheio.gestion_location.models.Caractestique;
+import ma.eheio.gestion_location.models.Client;
 import ma.eheio.gestion_location.models.Game;
+import ma.eheio.gestion_location.models.Maintenance;
 import ma.eheio.gestion_location.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,4 +27,26 @@ public class GameService {
     {
         gameRepository.deleteById(id);
     }
+    public Game getById(int id)
+    {
+        return gameRepository.findById(id).orElseThrow();
+    }
+    public void Update(Game c)
+    {
+        Game old=gameRepository.findById(c.getId()).orElseThrow();
+        old.setLibelle(c.getLibelle());
+        old.setDetails(c.getDetails());
+        old.setNbrPortes(c.getNbrPortes());
+        old.setNbrPassagers(c.getNbrPassagers());
+
+        old.setModel(c.getModel());
+        old.setVoitures(c.getVoitures());
+        old.setCaractestiques(c.getCaractestiques());
+
+        old.setLastModifiedDate(c.getLastModifiedDate());
+        old.setLastModifiedBy(c.getLastModifiedBy());
+
+        gameRepository.save(old);
+    }
+
 }
