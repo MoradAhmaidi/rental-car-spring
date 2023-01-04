@@ -39,7 +39,7 @@ public class CategorieController {
         c.setCreatedDate(date);
         c.setLastModifiedDate(date);
         categorieService.save(c);
-        return "redirect:ListeCategorie";
+        return "redirect:Categorie";
     }
     @GetMapping("/EditeCategorie")
     public String edite(Model model,int id)
@@ -55,7 +55,13 @@ public class CategorieController {
         Date date = new Date(System.currentTimeMillis());
         c.setLastModifiedDate(date);
         categorieService.save(c);
-        return "redirect:ListeCategorie";
+        return "redirect:Categorie";
+    }
+    @GetMapping("/DeleteCategorie")
+    public String delete(int id)
+    {
+        categorieService.delete(id);
+        return "redirect:Categorie";
     }
 
 }

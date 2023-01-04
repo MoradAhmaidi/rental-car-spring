@@ -42,7 +42,7 @@ public class CaractestiqueController {
         c.setCreatedDate(date);
         c.setLastModifiedDate(date);
         caracteristiquesService.save(c);
-        return "redirect:ListeOption";
+        return "redirect:Option";
     }
     @GetMapping("/EditeOption")
     public String edite(Model model,int id)
@@ -58,7 +58,13 @@ public class CaractestiqueController {
         Date date = new Date(System.currentTimeMillis());
         c.setLastModifiedDate(date);
         caracteristiquesService.update(c);
-        return "redirect:ListeOption";
+        return "redirect:Option";
+    }
+    @GetMapping("/DeleteOption")
+    public String delete(int id)
+    {
+         caracteristiquesService.delete(id);
+        return "redirect:Option";
     }
 
 

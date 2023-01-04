@@ -28,28 +28,26 @@
 
         <div class="card-body pb-0">
           <h5 class="card-title">Marque</h5>
-          <p class="card-text"><a class="btn btn-sm btn-primary " th:href="${CreateMarque}">Ajoute</a></p>
+          <p class="card-text"><a class="btn btn-sm btn-primary " th:href="@{/CreateMarque}">Ajoute</a></p>
 
           <table class="table table-borderless">
             <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Logo</th>
               <th scope="col">Libelle</th>
               <th scope="col">Details</th>
               <th scope="col">Action</th>
             </tr>
             </thead>
-            <tbody>
-              <tr th:each="m:${marques}" >
+            <tbody th:if="${!marques.isEmpty()}">
+              <tr th:each="m:${marques}">
                 <th scope="col" th:text="${m.id}"></th>
-                <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
                 <th scope="col" th:text="${m.libelle}"></th>
                 <th scope="col" th:text="${m.details}"></th>
                 <th>
                   <div class="btn-group">
-                    <a class="btn btn-primary"><i class="bi bi-star me-1"></i></a>
-                    <a class="btn btn-danger"><i class="bi bi-exclamation-octagon"></i></a>
+                    <a class="btn btn-success" th:href="@{/EditeMarque(id=${m.id})}"><i class="bi bi-pencil-fill"></i></a>
+                    <a onclick="return confirm('Etes Vous Sure ?')" class="btn btn-danger" th:href="@{/DeleteMarque(id=${m.id})}"><i class="bi bi-trash-fill"></i></a>
                   </div>
                 </th>
               </tr>

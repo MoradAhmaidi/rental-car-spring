@@ -15,13 +15,14 @@ import javax.persistence.*;
 public class Maintenance extends ObjetCommun {
 
     private float tarif;
-    private String remarque;
 
     @ManyToOne
-    @JoinColumn(name = "voiture_id",referencedColumnName = "id")
+    @JoinColumn(name = "voiture_id",insertable=false, updatable=false)
     private Voiture voiture;
+    private int voiture_id;
 
     @ManyToOne
-    @JoinColumn(name = "fournisseur_id",referencedColumnName = "id")
+    @JoinColumn(name = "fournisseur_id",insertable=false, updatable=false)
     private Fournisseur fournisseur;
+    private int fournisseur_id;
 }

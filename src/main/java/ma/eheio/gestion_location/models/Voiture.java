@@ -27,8 +27,9 @@ public class Voiture extends Auditable<String> {
     private String path;
 
     @ManyToOne
-    @JoinColumn(name = "game_id",referencedColumnName = "id")
+    @JoinColumn(name = "game_id",insertable=false, updatable=false)
     private  Game game;
+    private int game_id;
 
     @OneToMany(mappedBy ="voiture")
     private List<Maintenance> maintenances;

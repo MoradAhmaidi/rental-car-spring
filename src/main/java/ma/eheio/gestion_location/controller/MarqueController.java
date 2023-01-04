@@ -37,7 +37,7 @@ public class MarqueController {
         m.setCreatedDate(date);
         m.setLastModifiedDate(date);
         marqueService.save(m);
-        return "redirect:ListeMarque";
+        return "redirect:Marque";
     }
     @GetMapping("/EditeMarque")
     public String edite(Model model,int id)
@@ -53,6 +53,12 @@ public class MarqueController {
         Date date = new Date(System.currentTimeMillis());
         m.setLastModifiedDate(date);
         marqueService.update(m);
-        return "redirect:ListeMarque";
+        return "redirect:Marque";
+    }
+    @GetMapping("/DeleteMarque")
+    public String delete(int id)
+    {
+        marqueService.delete(id);
+        return "redirect:Marque";
     }
 }

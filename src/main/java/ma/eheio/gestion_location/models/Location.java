@@ -21,11 +21,13 @@ public class Location {
     private boolean loue;
 
     @ManyToOne
-    @JoinColumn(name = "client_id")
+    @JoinColumn(name = "client_id",insertable=false, updatable=false)
     private Client client;
+    private int client_id;
 
     @ManyToOne
-    @JoinColumn(name = "voiture_id")
+    @JoinColumn(name = "voiture_id",insertable=false, updatable=false)
     private Voiture voiture;
+    private int voiture_id;
 
 }

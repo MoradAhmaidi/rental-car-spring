@@ -33,7 +33,7 @@ public class ClientController {
     public String save(Client c)
     {
         clientService.save(c);
-        return "redirect:ListeClient";
+        return "redirect:Client";
     }
 
     @GetMapping("/EditeClient")
@@ -41,7 +41,7 @@ public class ClientController {
     {
         Client client = clientService.getById(id);
         model.addAttribute("Client",client);
-        return "editeClient";
+        return "EditeClient";
     }
     @PostMapping("/EditeClient")
     public String edite(Client c)
@@ -50,6 +50,12 @@ public class ClientController {
         Date date = new Date(System.currentTimeMillis());
         c.setLastModifiedDate(date);
         clientService.save(c);
-        return "redirect:ListeClient";
+        return "redirect:Client";
+    }
+    @GetMapping("/DeleteClient")
+    public String delete(int id)
+    {
+        clientService.delete(id);
+        return "redirect:Client";
     }
 }

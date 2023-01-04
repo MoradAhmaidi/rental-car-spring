@@ -38,7 +38,7 @@ public class UtilisateurController {
         u.setCreatedDate(date);
         u.setLastModifiedDate(date);
         utilisateurService.save(u);
-        return "redirect:ListeUtilisateur";
+        return "redirect:Utilisateur";
     }
 
     @GetMapping("/EditeUtilisateur")
@@ -54,6 +54,12 @@ public class UtilisateurController {
         Date date = new Date(System.currentTimeMillis());
         u.setLastModifiedDate(date);
         utilisateurService.save(u);
-        return "redirect:ListeUtilisateur";
+        return "redirect:Utilisateur";
+    }
+    @GetMapping("/DeleteUtilisateur")
+    public String delete(int id)
+    {
+        utilisateurService.delete(id);
+        return "redirect:Utilisateur";
     }
 }

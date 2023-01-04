@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index">
+<body>
+<div layout:fragment="contenu">
+    <div class="pagetitle">
+        <h1>Dashboard</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Client</a></li>
+                <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+        </nav>
+    </div>
+    <div class="col-12">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Modifier Voiture</h5>
+
+                    <!-- General Form Elements -->
+                    <form class="row g-3" th:action="@{EditeVoiture}" method="post">
+                        <div class="col-md-3 mb-3">
+                            <label for="game" class="form-label">Game</label>
+                            <select class="form-select" aria-label="color" id="game" name="game_id" required>
+                                <option  th:value="${voiture.game.id}" th:text="voiture.game.libelle" selected></option>
+                                <option th:each="game:${games}"
+                                        th:value="${game.id}"
+                                        th:text="${game.libelle}"></option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="id" class="form-label">ID</label>
+                            <input type="text" class="form-control" id="id" name="id" th:value="${voiture.id}"  readonly>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="matricule" class="form-label">Matricule</label>
+                            <input type="text" class="form-control" id="matricule" name="matricule"  th:value="${voiture.matricule}" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Chassis" class="form-label">N°Chassis</label>
+                            <input type="text" class="form-control" id="Chassis" name="nChassis" th:value="${voiture.nChassis}" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="Etat" class="form-label">Etat</label>
+                            <select class="form-select" aria-label="color" id="Etat" name="etat" required>
+                                <option th:text="${voiture.etat}" selected></option>
+                                <option value="Excellent">Excellent</option>
+                                <option value="Tres Bon">Tres Bon</option>
+                                <option value="Bon">Bon</option>
+                                <option value="Corect">Corect</option>
+                                <option value="Endommage">Endommage</option>
+                                <option value="Pour Pieces">Pour Pièces</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="Carburant" class="form-label">Carburant</label>
+                            <select class="form-select" aria-label="Carburant" id="Carburant" name="carburant" required>
+                                <option th:text="${voiture.carburant}" selected></option>
+                                <option value="Diesel" >Diesel</option>
+                                <option value="Essance">Essance</option>
+                                <option value="Electrique">Electrique</option>
+                                <option value="Hyprid">Hyprid</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label class="form-label">Boite Vitesse</label>
+                            <select class="form-select" aria-label="boite Vitessse" name="boiteVitesse" required>
+                                <option th:text="${voiture.boiteVitesse}" selected>Blanc</option>
+                                <option value="Automatique">Automatique</option>
+                                <option value="Manuelle">Manuelle</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="color" class="form-label">Color</label>
+                            <select class="form-select" aria-label="color" id="color" name="color" required>
+                                <option th:text="${voiture.color}" selected></option>
+                                <option value="Blanc">Blanc</option>
+                                <option value="Noir">Noir</option>
+                                <option value="Bleu">Bleu</option>
+                                <option value="Rouge">Rouge</option>
+                                <option value="Orange">Orange</option>
+                                <option value="Brun">Brun</option>
+                                <option value="Autre">Autre</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="kilo" class="form-label">kilometrage</label>
+                            <input type="number" class="form-control" id="kilo" name="kilometrage" th:value="${voiture.kilometrage}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="puissance" class="form-label">Puissance</label>
+                            <input type="number" class="form-control" id="puissance" name="puissance" th:value="${voiture.puissance}" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="col-sm-2 col-form-label"></label>
+                            <div class="col-sm-10">
+                                <button type="submit" class="btn btn-primary">Modifier</button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- End General Form Elements -->
+                </div>
+            </div>
+        </div>
+    </div><!-- End Top Selling -->
+</div>
+
+</body>

@@ -19,12 +19,14 @@ public class Model extends ObjetCommun {
     private List<Game> games;
 
     @ManyToOne
-    @JoinColumn(name = "marque_id",referencedColumnName = "id")
+    @JoinColumn(name = "marque_id",insertable=false, updatable=false)
     private Marque marque;
+    private int marque_id;
 
     @ManyToOne
-    @JoinColumn(name = "categorie_id",referencedColumnName = "id")
+    @JoinColumn(name = "categorie_id",insertable=false, updatable=false)
     private Categorie categorie;
+    private int categorie_id;
 
 
 }

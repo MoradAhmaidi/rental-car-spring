@@ -24,12 +24,12 @@ public class FournisseurController {
         model.addAttribute("fournisseurs",fournisseurs);
         return "ListeFournisseur";
     }
-    @GetMapping("/CreateFournisseurs")
+    @GetMapping("/CreateFournisseur")
     public String save()
     {
-        return "CreateFournisseurs";
+        return "CreateFournisseur";
     }
-    @PostMapping("/CreateFournisseurs")
+    @PostMapping("/CreateFournisseur")
     public String save(Fournisseur f)
     {
         SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z");
@@ -37,7 +37,7 @@ public class FournisseurController {
         f.setCreatedDate(date);
         f.setLastModifiedDate(date);
         fournisseurService.save(f);
-        return "redirect:ListeFournisseur";
+        return "redirect:Fournisseur";
     }
     @GetMapping("/EditeFournisseur")
     public String edite(Model model,int id)
@@ -53,7 +53,13 @@ public class FournisseurController {
         Date date = new Date(System.currentTimeMillis());
         f.setLastModifiedDate(date);
         fournisseurService.save(f);
-        return "redirect:ListeFournisseur";
+        return "redirect:Fournisseur";
+    }
+    @GetMapping("/DeleteFournisseur")
+    public String delete(int id)
+    {
+        fournisseurService.delete(id);
+        return "redirect:Fournisseur";
     }
 
 }

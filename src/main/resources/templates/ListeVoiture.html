@@ -28,23 +28,48 @@
 
         <div class="card-body pb-0">
           <h5 class="card-title">Voiture</h5>
-          <p class="card-text"><a class="btn btn-sm btn-primary " th:href="${CreateVoiture}">Ajoute</a></p>
+          <p class="card-text"><a class="btn btn-sm btn-primary " th:href="@{/CreateVoiture}">Ajoute</a></p>
 
           <table class="table table-borderless">
             <thead>
             <tr>
-              <th scope="col">Preview</th>
-              <th scope="col">Product</th>
-              <th scope="col">Price</th>
-              <th scope="col">Sold</th>
-              <th scope="col">Revenue</th>
+              <th scope="col">ID</th>
+              <th scope="col">Game</th>
+              <th scope="col">Matricule</th>
+              <th scope="col">N.Chassis</th>
+              <th scope="col">kilometrage</th>
+              <th scope="col">Carburant</th>
+              <th scope="col">B.Vitesse</th>
+              <th scope="col">Puissance</th>
+              <th scope="col">Etat</th>
+              <th scope="col">Disponibilite</th>
+              <th scope="col">Action</th>
+
             </tr>
             </thead>
-            <tbody>
-
+            <tbody th:if="${!voitures.isEmpty()}">
+             <tr th:each="v:${voitures}" >
+                  <th scope="col" th:text="${v.id}"></th>
+                  <th scope="col" th:text="${v.game.libelle}"></th>
+                  <th scope="col" th:text="${v.matricule}"></th>
+                  <th scope="col" th:text="${v.nChassis}"></th>
+                  <th scope="col" th:text="${v.kilometrage}"></th>
+                  <th scope="col" th:text="${v.carburant}"></th>
+                  <th scope="col" th:text="${v.boiteVitesse}"></th>
+                  <th scope="col" th:text="${v.puissance}"></th>
+                  <th scope="col" th:text="${v.etat}"></th>
+                  <th scope="col" th:text="${v.disponibilite}"></th>
+                  <th>
+                    <div class="btn-group">
+                      <a class="btn btn-success" th:href="@{/EditeVoiture(id=${v.id})}"  ><i class="bi bi-pencil-fill"></i></a>
+                      <a onclick="return confirm('Etes Vous Sure ?')" class="btn btn-danger" th:href="@{/DeleteVoiture(id=${v.id})}"   ><i class="bi bi-trash-fill"></i></a>
+                    </div>
+                  </th>
+            </tr>
             </tbody>
           </table>
         </div>
+
         </div>
 
       </div>

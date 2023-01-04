@@ -19,8 +19,9 @@ public class Game extends ObjetCommun{
     @OneToMany(mappedBy = "game")
     private List<Voiture> voitures;
     @ManyToOne
-    @JoinColumn(name = "model_id",referencedColumnName = "id")
+    @JoinColumn(name = "model_id",referencedColumnName = "id",insertable=false, updatable=false)
     private Model model;
+    private int model_id;
 
     @ManyToMany(mappedBy = "games")
     private List<Caracteristique> caractestiques;

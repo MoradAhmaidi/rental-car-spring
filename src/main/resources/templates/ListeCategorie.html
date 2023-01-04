@@ -16,7 +16,7 @@
           <a class="icon" href="#" data-bs-toggle="dropdown"></a>
           <div class="card-body pb-0">
             <h5 class="card-title">Categorie</h5>
-            <p class="card-text"><a class="btn btn-sm btn-primary " th:href="${CreateCategorie}">Ajoute</a></p>
+            <p class="card-text"><a class="btn btn-sm btn-primary " th:href="@{/CreateCategorie}">Ajoute</a></p>
 
             <table class="table table-borderless">
               <thead>
@@ -28,7 +28,7 @@
                 <th scope="col">Action</th>
               </tr>
               </thead>
-              <tbody>
+              <tbody th:if="${!categories.isEmpty()}">
                 <tr th:each="c:${categories}" >
                   <th scope="col" th:text="${c.id}"></th>
                   <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
@@ -36,8 +36,8 @@
                   <th scope="col" th:text="${c.details}"></th>
                   <th>
                     <div class="btn-group">
-                      <a class="btn btn-primary"><i class="bi bi-star me-1"></i></a>
-                      <a class="btn btn-danger"><i class="bi bi-exclamation-octagon"></i></a>
+                      <a class="btn btn-success" th:href="@{/EditeCategorie(id=${c.id})}"><i class="bi bi-pencil-fill"></i></a>
+                      <a onclick="return confirm('Etes Vous Sure ?')" class="btn btn-danger" th:href="@{/DeleteCategorie(id=${c.id})}"><i class="bi bi-exclamation-octagon"></i></a>
                     </div>
                   </th>
                 </tr>

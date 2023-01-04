@@ -34,7 +34,6 @@ public class MaintenanceService {
         old.setLibelle(m.getLibelle());
         old.setDetails(m.getDetails());
         old.setTarif(m.getTarif());
-        old.setRemarque(m.getRemarque());
 
         old.setVoiture(m.getVoiture());
         old.setFournisseur(m.getFournisseur());

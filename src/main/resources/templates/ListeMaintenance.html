@@ -28,20 +28,35 @@
 
         <div class="card-body pb-0">
           <h5 class="card-title">Maintenance</h5>
-          <p class="card-text"><a class="btn btn-sm btn-primary " th:href="${CreateMaintennance}">Ajoute</a></p>
+          <p class="card-text"><a class="btn btn-sm btn-primary " th:href="@{/CreateMaintenance}">Ajoute</a></p>
 
           <table class="table table-borderless">
             <thead>
             <tr>
-              <th scope="col">Preview</th>
-              <th scope="col">Product</th>
-              <th scope="col">Price</th>
-              <th scope="col">Sold</th>
-              <th scope="col">Revenue</th>
+              <th scope="col">ID</th>
+              <th scope="col">Libelle</th>
+              <th scope="col">Details</th>
+              <th scope="col">Tarif</th>
+              <th scope="col">Voiture</th>
+              <th scope="col">Fournisseur</th>
+              <th scope="col">Action</th>
             </tr>
             </thead>
-            <tbody>
-
+            <tbody th:if="${!maintenances.isEmpty()}">
+            <tr th:each="m:${maintenances}" >
+              <th scope="col" th:text="${m.id}"></th>
+              <th scope="col" th:text="${m.libelle}"></th>
+              <th scope="col" th:text="${m.details}"></th>
+              <th scope="col" th:text="${m.tarif}"></th>
+              <th scope="col" th:text="${m.voiture.matricule}"></th>
+              <th scope="col" th:text="${m.fournisseur.libelle}"></th>
+              <th>
+                <div class="btn-group">
+                  <a class="btn btn-success" th:href="@{/EditeMaintennance(id=${m.id})}"><i class="bi bi-pencil-fill"></i></a>
+                  <a onclick="return confirm('Etes Vous Sure ?')" class="btn btn-danger" th:href="@{/DeleteMaintennance(id=${m.id})}"><i class="bi bi-trash-fill"></i></a>
+                </div>
+              </th>
+            </tr>
             </tbody>
           </table>
 

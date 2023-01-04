@@ -28,20 +28,39 @@
 
         <div class="card-body pb-0">
           <h5 class="card-title">Game</h5>
-          <p class="card-text"><a class="btn btn-sm btn-primary " th:href="${CreateGame}">Ajoute</a></p>
+          <p class="card-text"><a class="btn btn-sm btn-primary " th:href="@{/CreateGame}">Ajoute</a></p>
 
           <table class="table table-borderless">
             <thead>
             <tr>
-              <th scope="col">Preview</th>
-              <th scope="col">Product</th>
-              <th scope="col">Price</th>
-              <th scope="col">Sold</th>
-              <th scope="col">Revenue</th>
+              <th scope="col">ID</th>
+              <th scope="col">Libelle</th>
+              <th scope="col">Details</th>
+              <th scope="col">N Porte</th>
+              <th scope="col">N Passage</th>
+              <th scope="col">Model</th>
+              <th scope="col">Marque</th>
+              <th scope="col">Categorie</th>
+              <th scope="col">Action</th>
             </tr>
             </thead>
-            <tbody>
-
+            <tbody th:if="${!games.isEmpty()}">
+              <tr th:each="g:${games}" >
+                <th scope="col" th:text="${g.id}"></th>
+                <th scope="col" th:text="${g.libelle}"></th>
+                <th scope="col" th:text="${g.details}"></th>
+                <th scope="col" th:text="${g.nbrPortes}"></th>
+                <th scope="col" th:text="${g.nbrPassagers}"></th>
+                <th scope="col" th:text="${g.model.libelle}"></th>
+                <th scope="col" th:text="${g.model.marque.libelle}"></th>
+                <th scope="col" th:text="${g.model.categorie.libelle}"></th>
+                <th>
+                  <div class="btn-group">
+                    <a class="btn btn-success" th:href="@{/EditeGame(id=${g.id})}"><i class="bi bi-pencil-fill"></i></a>
+                    <a onclick="return confirm('Etes Vous Sure ?')" class="btn btn-danger" th:href="@{/DeleteGame(id=${g.id})}"><i class="bi bi-trash-fill"></i></a>
+                  </div>
+                </th>
+              </tr>
             </tbody>
           </table>
 

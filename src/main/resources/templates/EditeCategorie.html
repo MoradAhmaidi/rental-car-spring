@@ -23,13 +23,13 @@
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Libelle</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="libelle">
+                                <input type="text" class="form-control" name="libelle" th:value="${categorie.libelle}"  >
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label">Details</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" name="details">
+                                <input type="text" class="form-control" name="details" th:value="${categorie.details}" >
                             </div>
                         </div>
                         <div class="row mb-3">

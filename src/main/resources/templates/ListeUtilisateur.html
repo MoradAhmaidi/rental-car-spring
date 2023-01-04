@@ -28,7 +28,7 @@
 
         <div class="card-body pb-0">
           <h5 class="card-title">Utilisateur</h5>
-          <p class="card-text"><a class="btn btn-sm btn-primary " th:href="${CreateUtilisateur}">Ajoute</a></p>
+          <p class="card-text"><a class="btn btn-sm btn-primary " th:href="@{/CreateUtilisateur}">Ajoute</a></p>
 
           <table class="table table-borderless">
             <thead>
@@ -46,7 +46,7 @@
               <th scope="col">Action</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody th:if="${!utilisateurs.isEmpty()}">
               <tr th:each="u:${utilisateurs}" >
                 <th scope="col" th:text="${u.id}"></th>
                 <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
@@ -60,8 +60,8 @@
                 <th scope="col" th:text="${u.motDePass}"></th>
                 <th>
                   <div class="btn-group">
-                    <a class="btn btn-primary"><i class="bi bi-star me-1"></i></a>
-                    <a class="btn btn-danger"><i class="bi bi-exclamation-octagon"></i></a>
+                    <a class="btn btn-success" th:href="@{/DeleteUtilisateur(id=${u.id})}"><i class="bi bi-pencil-fill"></i></a>
+                    <a onclick="return confirm('Etes Vous Sure ?')" class="btn btn-danger" th:href="@{/DeleteUtilisateur(id=${u.id})}"><i class="bi bi-trash-fill"></i></a>
                   </div>
                 </th>
             </tbody>

@@ -21,7 +21,7 @@
 
       <div class="card-body pb-0">
         <h5 class="card-title">Option</h5>
-        <p class="card-text"><a class="btn btn-sm btn-primary " th:href="${CreateOption}">Ajoute</a></p>
+        <p class="card-text"><a class="btn btn-sm btn-primary " th:href="@{/CreateOption}">Ajoute</a></p>
 
         <table class="table table-borderless">
           <thead>
@@ -32,15 +32,15 @@
             <th scope="col">Action</th>
           </tr>
           </thead>
-          <tbody>
-            <tr th:each="caractestique:${caractestiques}" >
-              <th scope="col" th:text="${caractestique.id}"></th>
-              <th scope="col" th:text="${caractestique.libelle}"></th>
-              <th scope="col" th:text="${caractestique.details}"></th>
+          <tbody th:if="${!options.isEmpty()}">
+            <tr th:each="o:${options}" >
+              <th scope="col" th:text="${o.id}"></th>
+              <th scope="col" th:text="${o.libelle}"></th>
+              <th scope="col" th:text="${o.details}"></th>
               <th>
                 <div class="btn-group">
-                  <a class="btn btn-primary"><i class="bi bi-star me-1"></i></a>
-                  <a class="btn btn-danger"><i class="bi bi-exclamation-octagon"></i></a>
+                  <a class="btn btn-success" th:href="@{/EditeOption(id=${o.id})}"><i class="bi bi-pencil-fill"></i></a>
+                  <a onclick="return confirm('Etes Vous Sure ?')" class="btn btn-danger" th:href="@{/DeleteOption(id=${o.id})}"><i class="bi bi-trash-fill"></i></a>
                 </div>
               </th>
             </tr>
