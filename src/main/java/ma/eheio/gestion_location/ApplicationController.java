@@ -1,35 +1,21 @@
 package ma.eheio.gestion_location;
 
-import ma.eheio.gestion_location.models.Utilisateur;
-import ma.eheio.gestion_location.services.UtilisateurService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpSession;
 
 @Controller
 public class ApplicationController {
-    @Autowired
-    private UtilisateurService utilisateurService;
-    @GetMapping("/")
-    public String goIndex()
-    {
-        return "redirect:index";
-    }
     @GetMapping("/index")
-    public String goHome( HttpSession httpSession)
+
     {
-        if(httpSession.getAttribute("login")!=null && httpSession.getAttribute("password")!=null )
+<<<<<<< .mine        if(httpSession.getAttribute("login")!=null && httpSession.getAttribute("password")!=null )
         {
             return "index";
         }
         return "redirect:login";
-    }
-    @GetMapping("/login")
+=======        return "index";
+>>>>>>> .theirs    }
+<<<<<<< .mine    @GetMapping("/login")
     public String gologin()
     {
         return "Login";
@@ -53,5 +39,5 @@ public class ApplicationController {
         httpSession.invalidate();
         return "login";
     }
-
+=======>>>>>>> .theirs
 }

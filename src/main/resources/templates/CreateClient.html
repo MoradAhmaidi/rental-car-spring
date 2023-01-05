@@ -20,20 +20,20 @@
         <!-- General Form Elements -->
         <form class="row g-3" th:action="@{CreateClient}" method="post">
           <div class="col-md-4 mb-3">
-            <label for="nom" class="form-label">Nom</label>
-            <input type="text" class="form-control" id="nom" name="nom" required>
+            <label for="Cnom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="Cnom" name="nom" required>
           </div>
           <div class="col-md-4">
-            <label for="prenom" class="form-label">Prenom</label>
-            <input type="text" class="form-control" id="prenom" name="prenom" required>
+            <label for="Cprenom" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id="Cprenom" name="prenom" required>
           </div>
           <div class="col-md-4">
-            <label for="cin" class="form-label">Cin</label>
-            <input type="text" class="form-control" id="cin" name="cin" required pattern="^[A-Z]{1,2}[0-9]{4,6}$">
+            <label for="Ccin" class="form-label">Cin</label>
+            <input type="text" class="form-control" id="Ccin" name="cin" required>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="Date" class="form-label">Date de Naissance</label>
-            <input type="date" class="form-control" id="Date" name="dateNaiss" required>
+            <label for="CDate" class="form-label">Date de Naissance</label>
+            <input type="date" class="form-control" id="CDate" name="dateNaiss" required>
           </div>
           <div class="col-md-6 mb-3">
             <label class="form-label">Sexe</label>
@@ -43,12 +43,12 @@
             </select>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="telephone" class="form-label">Telephone</label>
-            <input type="tel" class="form-control" id="Telephone" name="telephone" required pattern="^0[5-7][0-9]{8}$">
+            <label for="tel" class="form-label">Telephone</label>
+            <input type="tel" class="form-control" id="tel" name="telephone" required>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" required>
+            <label for="Cemail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="Cemail" name="email" required>
           </div>
 
           <div class="col-md-12 mb-3">
