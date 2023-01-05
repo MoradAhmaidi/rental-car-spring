@@ -22,7 +22,6 @@
               <thead>
               <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Logo</th>
                 <th scope="col">Libelle</th>
                 <th scope="col">Details</th>
                 <th scope="col">Action</th>
@@ -31,7 +30,6 @@
               <tbody th:if="${!categories.isEmpty()}">
                 <tr th:each="c:${categories}" >
                   <th scope="col" th:text="${c.id}"></th>
-                  <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
                   <th scope="col" th:text="${c.libelle}"></th>
                   <th scope="col" th:text="${c.details}"></th>
                   <th>

@@ -19,6 +19,13 @@ public class UtilisateurController {
     @Autowired
     private UtilisateurService utilisateurService;
 
+    @GetMapping("/Profile")
+    public String profile(Model model,int id)
+    {
+        Utilisateur utilisateur=utilisateurService.getById(id);
+        model.addAttribute("user",utilisateur);
+        return "Profile";
+    }
     @GetMapping("/Utilisateur")
     public String getAll(Model model) {
         List<Utilisateur> utilisateurs = utilisateurService.getAll();

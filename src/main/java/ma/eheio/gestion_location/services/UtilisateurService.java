@@ -47,4 +47,9 @@ public class UtilisateurService {
 
         utilisateurRepository.save(old);
     }
+    public Utilisateur login(String login,String motDePass)
+    {
+        return utilisateurRepository.findByLoginAndMotDePass(login,motDePass);
+    }
+
 }

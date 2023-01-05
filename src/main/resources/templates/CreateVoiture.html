@@ -22,7 +22,7 @@
                     <form class="row g-3" th:action="@{CreateVoiture}" method="post">
                         <div class="col-md-3 mb-3">
                             <label for="game" class="form-label">Game</label>
-                            <select class="form-select" aria-label="color" id="game" name="game_id" required>
+                            <select class="form-select" aria-label="game" id="game" name="game_id" required>
                                 <option th:each="game:${games}"
                                         th:value="${game.id}"
                                         th:text="${game.libelle}"></option>
@@ -30,15 +30,15 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="matricule" class="form-label">Matricule</label>
-                            <input type="text" class="form-control" id="matricule" name="matricule" required>
+                            <input type="text" class="form-control" id="matricule" name="matricule" required >
                         </div>
                         <div class="col-md-3">
                             <label for="Chassis" class="form-label">N°Chassis</label>
                             <input type="text" class="form-control" id="Chassis" name="nChassis" required>
                         </div>
                         <div class="col-md-3">
-                            <label for="Etat" class="form-label">Etat</label>
-                            <select class="form-select" aria-label="color" id="Etat" name="etat" required>
+                            <label for="etat" class="form-label">Etat</label>
+                            <select class="form-select" aria-label="etat" id="etat" name="etat" required>
                                 <option value="Excellent">Excellent</option>
                                 <option value="Tres Bon">Tres Bon</option>
                                 <option value="Bon">Bon</option>
@@ -49,8 +49,8 @@
                             </select>
                         </div>
                         <div class="col-md-4 mb-3">
-                            <label for="Carburant" class="form-label">Carburant</label>
-                            <select class="form-select" aria-label="Carburant" id="Carburant" name="carburant" required>
+                            <label for="carburant" class="form-label">Carburant</label>
+                            <select class="form-select" aria-label="Carburant" id="carburant" name="carburant" required>
                                 <option value="Diesel" >Diesel</option>
                                 <option value="Essance">Essance</option>
                                 <option value="Electrique">Electrique</option>
@@ -59,7 +59,7 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <label class="form-label">Boite Vitesse</label>
-                            <select class="form-select" aria-label="boite Vitesse" name="boiteVitesse" required>
+                            <select class="form-select" aria-label="boiteVitesse"  name="boiteVitesse" required>
                                 <option value="Automatique">Automatique</option>
                                 <option value="Manuelle">Manuelle</option>
                             </select>

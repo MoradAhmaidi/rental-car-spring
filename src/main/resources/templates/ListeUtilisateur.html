@@ -34,7 +34,6 @@
             <thead>
             <tr>
               <th scope="col">ID</th>
-              <th scope="col">Photo</th>
               <th scope="col">Nom</th>
               <th scope="col">Prenom</th>
               <th scope="col">Sexe</th>
@@ -49,7 +48,6 @@
             <tbody th:if="${!utilisateurs.isEmpty()}">
               <tr th:each="u:${utilisateurs}" >
                 <th scope="col" th:text="${u.id}"></th>
-                <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
                 <th scope="col" th:text="${u.nom}"></th>
                 <th scope="col" th:text="${u.prenom}"></th>
                 <th scope="col" th:text="${u.sexe}"></th>
@@ -60,7 +58,7 @@
                 <th scope="col" th:text="${u.motDePass}"></th>
                 <th>
                   <div class="btn-group">
-                    <a class="btn btn-success" th:href="@{/DeleteUtilisateur(id=${u.id})}"><i class="bi bi-pencil-fill"></i></a>
+                    <a class="btn btn-success" th:href="@{/EditeUtilisateur(id=${u.id})}"><i class="bi bi-pencil-fill"></i></a>
                     <a onclick="return confirm('Etes Vous Sure ?')" class="btn btn-danger" th:href="@{/DeleteUtilisateur(id=${u.id})}"><i class="bi bi-trash-fill"></i></a>
                   </div>
                 </th>
