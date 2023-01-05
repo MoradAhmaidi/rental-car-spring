@@ -15,7 +15,7 @@ import java.util.List;
 public class Marque extends ObjetCommun {
 
     private String path;
-
+    
     @OneToMany(mappedBy = "marque")
     private List<Model> models;
 }

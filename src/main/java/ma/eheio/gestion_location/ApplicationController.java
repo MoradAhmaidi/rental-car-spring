@@ -21,24 +21,17 @@ public class ApplicationController {
         return "redirect:index";
     }
     @GetMapping("/index")
-    public String goHome(Model model, HttpSession httpSession)
+    public String goHome( HttpSession httpSession)
     {
-        System.out.println("index");
         if(httpSession.getAttribute("login")!=null && httpSession.getAttribute("password")!=null )
         {
-            Utilisateur utilisateur=utilisateurService.login(httpSession.getAttribute("login").toString()
-                    ,httpSession.getAttribute("password").toString());
-            model.addAttribute("user",utilisateur);
-            System.out.println("index sucss");
             return "index";
         }
-        System.out.println("index fild");
         return "redirect:login";
     }
     @GetMapping("/login")
     public String gologin()
     {
-        System.out.println("login Get");
         return "Login";
     }
     @PostMapping("/login")
