@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="index">
+<body>
+<div layout:fragment="contenu">
+  <div class="pagetitle">
+    <h1>Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a th:href="@{index}">Location</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav>
+  </div>
+  <div class="col-12">
+    <div class="col-lg-12">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Ajoute Location</h5>
+
+          <!-- General Form Elements -->
+          <form class="row g-3" th:action="@{CreateLocation}" method="post">
+            <div class="col-md-6 mb-3">
+              <label for="client" class="form-label">Client</label>
+              <select class="form-select" aria-label="color" id="client" name="client_id" required>
+                <option th:each="c:${clients}"
+                        th:value="${c.id}"
+                        th:text="${c.cin}"></option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="voiture" class="form-label">Voiture</label>
+              <select class="form-select" aria-label="color" id="voiture" name="voiture_id" required>
+                <option th:each="v:${voitures}"
+                        th:value="${v.id}"
+                        th:text="${v.matricule}"></option>
+              </select>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="dated" class="form-label">Date Depart</label>
+              <input type="date" class="form-control" id="dated" name="dateDepart" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="dater" class="form-label">Date Retoure</label>
+              <input type="date" class="form-control" id="dater" name="dateRetoure" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="col-sm-2 col-form-label"></label>
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+              </div>
+            </div>
+          </form>
+          <!-- End General Form Elements -->
+        </div>
+      </div>
+    </div>
+  </div><!-- End Top Selling -->
+</div>
+
+</body>

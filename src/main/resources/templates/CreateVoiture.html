@@ -6,7 +6,7 @@
         <h1>Dashboard</h1>
         <nav>
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="index.html">Client</a></li>
+                <li class="breadcrumb-item"><a th:href="@{index}">Voiture</a></li>
                 <li class="breadcrumb-item active">Dashboard</li>
             </ol>
         </nav>
@@ -76,13 +76,17 @@
                                 <option value="Autre">Autre</option>
                             </select>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label for="kilo" class="form-label">kilometrage</label>
                             <input type="number" class="form-control" id="kilo" name="kilometrage" required>
                         </div>
-                        <div class="col-md-6 mb-3">
+                        <div class="col-md-4 mb-3">
                             <label for="puissance" class="form-label">Puissance</label>
                             <input type="number" class="form-control" id="puissance" name="puissance" required>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <label for="tarif" class="form-label">Tarif</label>
+                            <input type="number" class="form-control" id="tarif" name="tarif" required>
                         </div>
 
 

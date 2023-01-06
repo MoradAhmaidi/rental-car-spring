@@ -30,6 +30,7 @@ public class VoitureService {
     public void update(Voiture v)
     {
         Voiture old=voitureRepository.findById(v.getId()).orElseThrow();
+        old.setTarif(v.getTarif());
         old.setMatricule(v.getMatricule());
         old.setNChassis(v.getNChassis());
         old.setCarburant(v.getCarburant());

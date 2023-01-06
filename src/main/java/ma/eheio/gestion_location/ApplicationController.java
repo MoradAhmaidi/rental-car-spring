@@ -1,43 +1,33 @@
 package ma.eheio.gestion_location;
 
+import ma.eheio.gestion_location.services.StatistiqueService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+
 
 @Controller
 public class ApplicationController {
-    @GetMapping("/index")
 
+    @Autowired
+    private StatistiqueService statistiqueService;
+    @GetMapping("/")
+    public String index()
     {
-<<<<<<< .mine        if(httpSession.getAttribute("login")!=null && httpSession.getAttribute("password")!=null )
-        {
-            return "index";
-        }
-        return "redirect:login";
-=======        return "index";
->>>>>>> .theirs    }
-<<<<<<< .mine    @GetMapping("/login")
-    public String gologin()
-    {
-        return "Login";
+        return "redirect:index";
     }
-    @PostMapping("/login")
-    public String gologin(@RequestParam("login") String login, @RequestParam("password") String password, HttpSession httpSession)
+    @GetMapping("/index")
+    public String goHome(Model model)
     {
-        System.out.println("login post");
-       Utilisateur utilisateur= utilisateurService.login(login,password);
-       if (utilisateur!=null)
-       {
-           httpSession.setAttribute("login",utilisateur.getLogin());
-           httpSession.setAttribute("password",utilisateur.getMotDePass());
-           return "redirect:index";
-       }
-        return "Login";
+
+        model.addAttribute("voiture",statistiqueService.getVoiture());
+        model.addAttribute("client",statistiqueService.getClient());
+        model.addAttribute("fournisseur",statistiqueService.getFournisseur());
+        model.addAttribute("location",statistiqueService.getLocation());
+        model.addAttribute("reservation",statistiqueService.getReservation());
+
+        return "index";
     }
-    @GetMapping("/logout")
-    public String gologout(HttpSession httpSession)
-    {
-        httpSession.invalidate();
-        return "login";
-    }
-=======>>>>>>> .theirs
+
 }

@@ -4,4 +4,6 @@ import ma.eheio.gestion_location.models.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface LocationRepository extends JpaRepository<Location,Integer> {
+    public int countAllByLoueIsTrue();
+    public int countAllByLoueIsFalse();
 }

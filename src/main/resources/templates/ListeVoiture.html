@@ -6,26 +6,13 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Voiture</a></li>
+          <li class="breadcrumb-item"><a th:href="@{index}">Voiture</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
     </div>
     <div class="col-12">
       <div class="card top-selling overflow-auto">
-        <div class="filter">
-          <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-            <li class="dropdown-header text-start">
-              <h6>Filter</h6>
-            </li>
-
-            <li><a class="dropdown-item" href="#">Today</a></li>
-            <li><a class="dropdown-item" href="#">This Month</a></li>
-            <li><a class="dropdown-item" href="#">This Year</a></li>
-          </ul>
-        </div>
-
         <div class="card-body pb-0">
           <h5 class="card-title">Voiture</h5>
           <p class="card-text"><a class="btn btn-sm btn-primary " th:href="@{/CreateVoiture}">Ajoute</a></p>
@@ -36,7 +23,7 @@
               <th scope="col">ID</th>
               <th scope="col">Game</th>
               <th scope="col">Matricule</th>
-              <th scope="col">N.Chassis</th>
+              <th scope="col">Tarif</th>
               <th scope="col">kilometrage</th>
               <th scope="col">Carburant</th>
               <th scope="col">B.Vitesse</th>
@@ -44,7 +31,6 @@
               <th scope="col">Etat</th>
               <th scope="col">Disponibilite</th>
               <th scope="col">Action</th>
-
             </tr>
             </thead>
             <tbody th:if="${!voitures.isEmpty()}">
@@ -52,7 +38,7 @@
                   <th scope="col" th:text="${v.id}"></th>
                   <th scope="col" th:text="${v.game.libelle}"></th>
                   <th scope="col" th:text="${v.matricule}"></th>
-                  <th scope="col" th:text="${v.nChassis}"></th>
+                  <th scope="col" th:text="${v.tarif}"></th>
                   <th scope="col" th:text="${v.kilometrage}"></th>
                   <th scope="col" th:text="${v.carburant}"></th>
                   <th scope="col" th:text="${v.boiteVitesse}"></th>

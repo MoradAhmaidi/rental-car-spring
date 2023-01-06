@@ -14,7 +14,7 @@ public class Voiture extends Auditable<String> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
+    private float tarif;
     private String matricule;
     private String nChassis;
     private String carburant;
